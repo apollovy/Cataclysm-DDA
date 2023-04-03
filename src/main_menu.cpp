@@ -565,7 +565,7 @@ bool main_menu::opening_screen()
     ui.mark_resize();
 
     while( !start ) {
-        ui_manager::redraw();
+        ui_manager::redraw_all();
 
         if( layer == 1 ) {
             std::string action = ctxt.handle_input();
