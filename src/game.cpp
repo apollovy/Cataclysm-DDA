@@ -582,10 +582,6 @@ void game_ui::init_ui()
 #if defined(TILES) || defined(_WIN32)
     TERMX = get_terminal_width();
     TERMY = get_terminal_height();
-
-    get_options().get_option( "TERMINAL_X" ).setValue( TERMX * get_scaling_factor() );
-    get_options().get_option( "TERMINAL_Y" ).setValue( TERMY * get_scaling_factor() );
-    get_options().save();
 #else
     ensure_term_size();
 
