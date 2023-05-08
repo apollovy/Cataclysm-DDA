@@ -211,6 +211,7 @@ class ui_adaptor
         /* See the `ui_manager` namespace */
         static void invalidate( const rectangle<point> &rect, bool reenable_uis_below );
         static void redraw();
+        static void redraw_all();
         static void redraw_invalidated();
         static void screen_resized();
     private:
@@ -267,6 +268,7 @@ void invalidate( const rectangle<point> &rect, bool reenable_uis_below );
  * calculated within the respective callbacks.
  **/
 void redraw();
+void redraw_all();
 /**
  * Redraw all invalidated windows without invalidating the top window.
  **/

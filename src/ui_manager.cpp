@@ -321,6 +321,15 @@ void ui_adaptor::redraw()
     redraw_invalidated();
 }
 
+void ui_adaptor::redraw_all()
+{
+    for (std::reference_wrapper<ui_adaptor> ui : ui_stack) {
+        ui.get().invalidated = true;
+    }
+    redraw_invalidated();
+}
+
+
 void ui_adaptor::redraw_invalidated()
 {
     if( test_mode || ui_stack.empty() ) {
@@ -463,6 +472,11 @@ void invalidate( const rectangle<point> &rect, const bool reenable_uis_below )
 void redraw()
 {
     ui_adaptor::redraw();
+}
+
+void redraw_all()
+{
+    ui_adaptor::redraw_all();
 }
 
 void redraw_invalidated()
